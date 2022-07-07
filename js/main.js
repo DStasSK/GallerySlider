@@ -1,6 +1,6 @@
 const gallery = document.querySelector('.gallery');
 const galleryShadow = document.querySelector('.galleryShadow');
-const testColor = document.querySelector('.test_color');
+
 let galleryItemPull = 20;
 
 const backgroundColor = [
@@ -30,29 +30,24 @@ if(galleryItemPull<=2){
 	a = 1;
 }
 
+
 // random start
 let checkedIndex = Math.round(Math.random()*(galleryItemPull - 1));
-// checkedIndex=0;
+
 
 
 // стартовая генерация галереи
 for(let i = 0; i < galleryItemPull; i++){
 	let div = document.createElement('div');
-	setLeftPosition(div, i);
+	setLeftPosition(div, i, checkedIndex);
 	div.style.backgroundColor = backgroundColor[i];
-	div.innerHTML = i+1;
 	gallery.appendChild(div);
-
-	// тестовая полоска цветов
-	let div2 = document.createElement('div');
-	div2.style.backgroundColor = backgroundColor[i];
-	div2.style.width = 100 / galleryItemPull + '%';
-	div2.innerHTML = i+1;
-	testColor.appendChild(div2);
+	galleryShadow.appendChild(div.cloneNode(true));
 }
 
 
-function setLeftPosition(item, i){
+
+function setLeftPosition(item, i, checkedIndex){
 	let j = i - checkedIndex;
 	let left;
 	if(j < 0){
@@ -70,6 +65,25 @@ function setLeftPosition(item, i){
 	item.style.left = left;
 }
 
-function checkItem(){
 
+
+gallery.addEventListener('click', checkItem);
+gallery.addEventListener('onfocus', checkItem);
+function checkItem(e){
+	let gallery = document.querySelector('.gallery');
+	let gallery_items = gallery.children;
+	let galleryShadow = document.querySelector('.galleryShadow');
+	let galleryShadow_items = galleryShadow.children;
+
+	let j=0;
+	for (let i of gallery_items) {
+		if(e.target == i){break}
+		j++;
+	}
+	let checkedIndex = j;
+
+	for(let i = 0; i < galleryItemPull; i++){
+		setLeftPosition(gallery_items[i], i, checkedIndex);
+		setLeftPosition(galleryShadow_items[i], i, checkedIndex);
+	}
 }
