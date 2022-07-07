@@ -31,6 +31,7 @@ if(galleryItemPull<=2){
 }
 
 
+
 // random start
 let checkedIndex = Math.round(Math.random()*(galleryItemPull - 1));
 
@@ -62,6 +63,12 @@ function setLeftPosition(item, i, checkedIndex){
 		left = lefPositionPull[Math.min(a + j, c)] + '%';
 	}
 	if(i==0){left = '0'}
+
+	//fix for width
+	if((left=='10%')&&(galleryItemPull-1==i)){item.style.width='90%'}
+	if(i==0){item.style.width='90%';}
+	if(galleryItemPull==1){item.style.width='100%'; left=0}
+
 	item.style.left = left;
 }
 
@@ -75,6 +82,7 @@ function checkItem(e){
 	let galleryShadow = document.querySelector('.galleryShadow');
 	let galleryShadow_items = galleryShadow.children;
 
+	// определение номера элемента, который активировал событие
 	let j=0;
 	for (let i of gallery_items) {
 		if(e.target == i){break}
@@ -82,6 +90,7 @@ function checkItem(e){
 	}
 	let checkedIndex = j;
 
+	// установка нового положения элементов слайдера
 	for(let i = 0; i < galleryItemPull; i++){
 		setLeftPosition(gallery_items[i], i, checkedIndex);
 		setLeftPosition(galleryShadow_items[i], i, checkedIndex);
