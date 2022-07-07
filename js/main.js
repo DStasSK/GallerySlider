@@ -9,9 +9,9 @@ const backgroundColor = [
 	'#EF855B', '#FFC0A6', '#FFA581', '#DD693C', '#C74D1C',
 	'#7146A2', '#AA8BCC', '#8962B4', '#603195', '#4E1C87'
 ];
-const backgroundURL = [];
+const backgroundImageURL = [];
 
-// left position at %
+// left position в % в зависимости от количества элементов
 let lefPositionPull, a;
 if(galleryItemPull>4) {
 	lefPositionPull = [0, 2, 5, 10, 90, 95, 98, 100];
@@ -40,11 +40,14 @@ for(let i = 0; i < galleryItemPull; i++){
 	let div = document.createElement('div');
 	setLeftPosition(div, i);
 	div.style.backgroundColor = backgroundColor[i];
+	div.innerHTML = i+1;
 	gallery.appendChild(div);
 
 	// тестовая полоска цветов
 	let div2 = document.createElement('div');
 	div2.style.backgroundColor = backgroundColor[i];
+	div2.style.width = 100 / galleryItemPull + '%';
+	div2.innerHTML = i+1;
 	testColor.appendChild(div2);
 }
 

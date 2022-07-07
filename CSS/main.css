@@ -30,11 +30,10 @@
 }
 .gallery > div, .galleryShadow > div {
 	position:absolute;
-	width:100%;
+	width:90%;
 	height:100%;
 	background-size:cover;
-	left:0;
-	transition:left .3s;
+	transition:left .2s;
 }
 
 .test_color{
@@ -43,9 +42,7 @@
 	height:100px;
 	display:flex;
 }
-.test_color div{
-	width:5%;
-}
+
 @media screen and (orientation: portrait) {
 	.box{
 		max-width:auto;
