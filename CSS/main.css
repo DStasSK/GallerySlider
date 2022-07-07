@@ -34,8 +34,18 @@
 	height:100%;
 	background-size:cover;
 	left:0;
+	transition:left .3s;
 }
 
+.test_color{
+	margin-top:100px;
+	width:100%;
+	height:100px;
+	display:flex;
+}
+.test_color div{
+	width:5%;
+}
 @media screen and (orientation: portrait) {
 	.box{
 		max-width:auto;
