@@ -44,6 +44,7 @@ for(let i = 0; i < galleryItemPull; i++){
 	let div = document.createElement('div');
 	setLeftPosition(div, i, checkedIndex);
 	div.style.backgroundColor = backgroundColor[i];
+//	div.style.backgroundColor = backgroundImageURL[i];
 	gallery.appendChild(div);
 	galleryShadow.appendChild(div.cloneNode(true));
 }
