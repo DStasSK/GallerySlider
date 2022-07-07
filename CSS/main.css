@@ -2,10 +2,8 @@
 
 .box{
 	width:80vw;
-	max-width:740px;
-	height:50vw;
-	max-height:540px;
-	margin: 6vh auto;
+	height:80vh;
+	margin: 10vh auto;
 	position:relative;
 }
 .galleryShadow{
@@ -20,11 +18,11 @@
 }
 .gallery{
 	position:relative;
-	top:10%;
-	left:10%;
+	top:7%;
+	left:7%;
 	z-index:10;
-	width:80%;
-	height:80%;
+	width:86%;
+	height:86%;
 	overflow:hidden;
 	background:#fafafa;
 }
@@ -39,14 +37,14 @@
 
 @media screen and (orientation: portrait) {
 	.box{
-		max-width:auto;
-		height:80vh;
-		max-height:auto;
-		margin: 6vh auto;
+		width:94vw;
+		height:96vh;
+		margin: 2vh auto;
 	}
 	.gallery{
-		top:6%;
-		width:80%;
-		height:88%;
+		top:3%;
+		left:5%;
+		width:90%;
+		height:94%;
 	}
 }

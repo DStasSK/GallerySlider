@@ -11,6 +11,8 @@ const backgroundColor = [
 ];
 const backgroundImageURL = [];
 
+
+
 // left position в % в зависимости от количества элементов
 let lefPositionPull, a;
 if(galleryItemPull>4) {
@@ -64,8 +66,9 @@ function setLeftPosition(item, i, checkedIndex){
 	}
 	if(i==0){left = '0'}
 
-	//fix for width
+	// фикс для width на первом и последнем элементе слайдера
 	if((left=='10%')&&(galleryItemPull-1==i)){item.style.width='90%'}
+	if(galleryItemPull-1==i){item.style.width='90%'}
 	if(i==0){item.style.width='90%';}
 	if(galleryItemPull==1){item.style.width='100%'; left=0}
 
@@ -75,7 +78,6 @@ function setLeftPosition(item, i, checkedIndex){
 
 
 gallery.addEventListener('click', checkItem);
-gallery.addEventListener('onfocus', checkItem);
 function checkItem(e){
 	let gallery = document.querySelector('.gallery');
 	let gallery_items = gallery.children;
