@@ -11,22 +11,27 @@ const backgroundColor = [
 const backgroundURL = [];
 
 // left position at %
-if(galleryItemPull>4) const lefPosition = [0, 2, 5, 10, 90, 95, 98, 100];
-if(galleryItemPull==4)const lefPosition = [0, 2, 5, 10, 90, 95, 98];
-if(galleryItemPull==3)const lefPosition = [0, 5, 10, 90, 95];
-if(galleryItemPull<=2)const lefPosition = [0, 10, 90];
+if(galleryItemPull>4) {let lefPositionPull = [0, 2, 5, 10, 90, 95, 98, 100];}
+if(galleryItemPull==4){let lefPositionPull = [0, 2, 5, 10, 90, 95, 98];}
+if(galleryItemPull==3){let lefPositionPull = [0, 5, 10, 90, 95];}
+if(galleryItemPull<=2){let lefPositionPull = [0, 10, 90];}
 
 // random start
 let checkedIndex = Math.round(Math.random()*galleryItemPull);
 // let checkedIndex = 0;
-// console.log(randomStart);
+// console.log(checkedIndex);
 
-for(let i=0; i >= galleryItemPull; i++){
-
+for(let i=0; i < galleryItemPull; i++){
+	let div = document.createElement('div');
+	setLeftPosition(div);
+	div.style.backgroundColor = backgroundColor[i];
+	gallery.appendChild(div);
 }
 
 function setLeftPosition(item){
-
+	let left = '10%';
+	// if(i<checkedIndex){}
+	item.style.left=left;
 }
 
 function checkItem(){
